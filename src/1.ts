@@ -24,13 +24,7 @@ function addItemInfoDecorator(target: Object, method: string, descriptor: Proper
             info: `${this.name} - \$${this.price}`
         };
         
-        for(let prop in origResult){
-            if(!newObj.hasOwnProperty(prop)) {
-                newObj[prop] = origResult[prop];
-            }
-        }
-        
-        return newObj;
+        return Object.assign(origResult, newObj);
     }
 }
 

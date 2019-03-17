@@ -17,16 +17,16 @@ function addUserType(newType: string) {
             second: 'numeric'
         };
     
-        const newClass = class extends targetClass {
+        return class extends targetClass {
             type = newType;
             createdDate = new Date().toLocaleString("ru", options);
             newProperty = "new property value";
             hello = "override";
+            
+            myMethod2() {
+                console.log("newClass.MyMethod3");
+            }
         };
-    
-        newClass.prototype.myMethod2 = function () { console.log("newClass.MyMethod2") };
-    
-        return newClass;
     }
 }
 
